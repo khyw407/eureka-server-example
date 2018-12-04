@@ -1,0 +1,39 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: eureka
+spec:
+  type: NodePort
+  selector:
+    app: spring-cloud-eureka
+  ports:
+  - protocol: TCP
+    port: 8761
+    targetPort: 8761
+    nodePort: 31000
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: spring-cloud-eureka
+  labels:
+    app: spring-cloud-eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-cloud-eureka
+  template:
+    metadata:
+      labels:
+        app: spring-cloud-eureka
+        version: latest
+    spec:
+      hostname: eureka
+      subdomain: eureka
+      containers:
+      - name: spring-cloud-eureka
+        image: 192.168.0.8:5000/eureka-server:latest
+        ports:
+        - name: http
+          containerPort: 8761
