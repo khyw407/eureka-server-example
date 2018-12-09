@@ -1,29 +1,16 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: eureka
-spec:
-  rules:
-  - host: eureka.microservices.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: eureka
-          servicePort: 8761
----
 kind: Service
 apiVersion: v1
 metadata:
   name: eureka
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: spring-cloud-eureka
   ports:
   - protocol: TCP
     port: 8761
     targetPort: 8761
+    nodePort: 32002
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
