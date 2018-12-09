@@ -3,14 +3,13 @@ apiVersion: v1
 metadata:
   name: eureka
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: spring-cloud-eureka
   ports:
   - protocol: TCP
     port: 8761
     targetPort: 8761
-    nodePort: 31000
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -33,7 +32,7 @@ spec:
       subdomain: eureka
       containers:
       - name: spring-cloud-eureka
-        image: 192.168.0.8:5000/eureka-server:latest
+        image: 192.168.0.8:5000/service-discovery:latest
         ports:
         - name: http
           containerPort: 8761
