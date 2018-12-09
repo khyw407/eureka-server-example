@@ -1,3 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: eureka
+spec:
+  rules:
+  - host: eureka.microservices.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: eureka
+          servicePort: 8761
+---
 kind: Service
 apiVersion: v1
 metadata:
