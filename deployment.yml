@@ -10,7 +10,7 @@ spec:
   - protocol: TCP
     port: 8761
     targetPort: 8761
-    nodePort: 32003
+    nodePort: 32002
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
