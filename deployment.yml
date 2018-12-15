@@ -30,6 +30,7 @@ spec:
         version: latest
     spec:
       hostname: eureka
+      subdomain: eureka
       containers:
       - name: spring-cloud-eureka
         image: 192.168.0.8:5000/service-discovery:latest
