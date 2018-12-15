@@ -8,8 +8,8 @@ spec:
     app: spring-cloud-eureka
   ports:
   - protocol: TCP
-    port: 32002
-    targetPort: 32002
+    port: 8761
+    targetPort: 8761
     nodePort: 32002
 ---
 apiVersion: extensions/v1beta1
@@ -36,4 +36,4 @@ spec:
         image: 192.168.0.8:5000/service-discovery:latest
         ports:
         - name: http
-          containerPort: 32002
+          containerPort: 8761
