@@ -7,4 +7,4 @@ spring:
   cloud:
     config:
       uri:
-      - configuration.192.168.0.9.nip.io:32000
+      - http://configuration.192.168.0.9.nip.io:32000
