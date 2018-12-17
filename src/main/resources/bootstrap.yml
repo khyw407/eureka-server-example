@@ -7,4 +7,4 @@ spring:
   cloud:
     config:
       uri:
-      - http://configuration.192.168.0.9.nip.io:32000
+      - http://configuration.development.svc.cluster.local:8888
